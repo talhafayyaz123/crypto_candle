@@ -1,0 +1,30 @@
+.primary-btn{
+    background: $primary_color;
+    border: 1px solid $primary_color;
+    border-radius: 4px;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    &:hover{
+        text-decoration: none;
+        color: #fff;
+        box-shadow: $primary_color 0px 0px 12px;
+    }
+}
+.pricing-page{
+    .card{
+        .card-footer{
+            padding: 8px 0px;
+        }
+    }
+}
+.cc_auth{
+    a{
+        color: $primary_color;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}

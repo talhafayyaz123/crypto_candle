@@ -1,0 +1,120 @@
+.header {
+  min-height: 70px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+  .log-btn {
+    border-radius: 30px;
+    padding: 5px 15px !important;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid $primary_color;
+    display: inline-block;
+    background: $primary_color;
+    &:hover{
+      color: #fff !important;
+      box-shadow: $primary_color 0px 0px 12px;
+      transition: 0.4s;
+    }
+  }
+  .nav-btn{
+    border-radius: 4px;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 16px;
+    background: $primary_color;
+    border: 1px solid $primary_color;
+  }
+  #navmenu {
+    ul {
+      li {
+        margin-left: 10px;
+        a {
+          text-decoration: none;
+          font-size: 16px;
+          color: #fff;
+          &:hover {
+            text-decoration: none;
+            color: $primary_color;
+          }
+        }
+      }
+    }
+    .dropdown-menu{
+      a{
+        color: #000;
+      }
+    }
+  }
+}
+.sticky.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #0d111f;
+}
+.breadcrum{
+  min-height: 350px;
+  background: #0d111f;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2{
+    text-align: center;
+    font-size: 38px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  p{
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    margin: 0px;
+    a{
+      color: $primary_color;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .header {
+    min-height: 60px;
+    background: #0d111f;
+  }
+  .navbar-toggler {
+    color: #fff;
+    border: none !important;
+    padding: 0px !important;
+
+    &:focus {
+      border: none !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+    }
+    svg {
+      fill: #fff;
+    }
+  }
+  .drop-navbar {
+    width: 100%;
+    background: #0d111f;
+    position: fixed !important;
+    left: 0;
+    top: 10%;
+    padding: 15px 0px;
+  }
+}
+@media (max-width:767px) {
+  .breadcrum{
+    h2{
+      font-size: 26px;
+    }
+    p{
+      font-size: 16px;
+    }
+  }
+}

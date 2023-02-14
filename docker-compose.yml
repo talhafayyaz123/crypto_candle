@@ -1,0 +1,60 @@
+version: "3"
+services:
+  server_dev:
+    build:
+      context: ./server
+    restart: always
+    networks:
+      - ccd
+    ports:
+      - "5000:5000"
+      - "27017:27017"
+    volumes:
+      - ./server:/app
+    environment:
+      - FLASK_ENV=development
+    command: flask run
+    # command: tail -f /dev/null  # DON'T DELETE To spawn an idle container
+
+  server_prod:
+    build:
+      context: ./server
+    restart: always
+    networks:
+      - ccd
+    ports:
+      - "5000:5000"
+    command: flask run
+
+  client_dev:
+    build:
+      context: ./client
+    networks:
+      - ccd
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client/pages:/app/pages
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Hot-reload
+      - API_URL=http://localhost:5000/
+      - PROXY_API=http://server_dev:5000/
+    command: npm run dev
+    # command: tail -f /dev/null  # DON'T DELETE To spawn an idle container
+
+  client_prod:
+    build:
+      context: ./client
+    networks:
+      - ccd
+    ports:
+      - "3000:3000"
+    environment:
+      - API_URL=http://136.144.242.140:5000/ 
+      - PROXY_API=http://server_prod:5000/
+    command: sh -c "npm run build && npm run start"
+
+networks:
+  ccd:
+    name: ccd
+
